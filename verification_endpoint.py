@@ -33,7 +33,7 @@ def verify():
 	platform = payload['platform']
 	message = json.dumps(payload)
 	pk = payload['pk']
-	result = 'False'
+	result = False
 
 	#Check if signature is valid
 	if platform == 'Ethereum':
@@ -42,7 +42,7 @@ def verify():
 		eth_pk = pk
 		if eth_account.Account.recover_message(eth_encoded_msg,signature=eth_sig) == eth_pk:
 			print( "Eth sig verifies!" )
-			result = 'True' #Should only be true if signature validates
+			result = True #Should only be true if signature validates
 
 
 	elif platform == 'Algorand':
@@ -51,10 +51,10 @@ def verify():
 		alog_encoded_msg = message
 		if algosdk.util.verify_bytes(alog_encoded_msg,algo_sig,algo_pk):
 			print( "Algo sig verifies!" )
-			result = 'True' #Should only be true if signature validates
+			result = True #Should only be true if signature validates
 
 	
-	return jsonify(verify_result = result)
+	return jsonify(result)
 
 #verify()
 
