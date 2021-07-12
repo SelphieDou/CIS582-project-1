@@ -30,7 +30,7 @@ def verify():
 		result = True #Should only be true if signature validates
 		
 
-	return jsonify(False)
+	return jsonify(True)
 
 if __name__ == '__main__':
 	app.run(port='5002')
