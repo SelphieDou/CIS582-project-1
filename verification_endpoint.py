@@ -30,9 +30,10 @@ def verify():
 		
 	elif platform == 'Algorand':
 		result = True #Should only be true if signature validates
+		return jsonify(result)
 		
-
-	return jsonify(result)
+	else:
+		return jsonify(result)
 
 if __name__ == '__main__':
 	app.run(port='5002')
