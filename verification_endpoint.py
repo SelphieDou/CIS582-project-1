@@ -39,7 +39,5 @@ def verify():
 	
 	return jsonify(True)
 
-#verify()
-
 if __name__ == '__main__':
 	app.run(port='5002')
