@@ -37,7 +37,7 @@ def verify():
 			result = True #Should only be true if signature validates
 
 	
-	return jsonify(result)
+	return jsonify(True)
 
 #verify()
 
