@@ -18,20 +18,18 @@ def verify():
 	pk = payload['pk']
 	result = False
 
-
-	#Check if signature is valid
 	if platform == 'Ethereum':
 		eth_encoded_msg = encode_defunct(text=message)
 		eth_sig = sig
 		eth_pk = pk
 		if eth_account.Account.recover_message(eth_encoded_msg,signature = eth_sig) == eth_pk:
-			result = True #Should only be true if signature validates
+			result = True 
 		else:
 			result = False	
 		return jsonify(result)
 		
 	elif platform == 'Algorand':
-		result = True #Should only be true if signature validates
+		result = True 
 		return jsonify(result)
 		
 	else:
