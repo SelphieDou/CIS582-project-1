@@ -41,8 +41,9 @@ def verify():
 		eth_pk = pk
 		if eth_account.Account.recover_message(eth_encoded_msg,signature=eth_sig) == eth_pk:
 			print( "Eth sig verifies!" )
-			#result = True #Should only be true if signature validates
-			return jsonify(result= True, user_message = message)
+			result = True #Should only be true if signature validates
+		else
+			result = False
 
 
 	elif platform == 'Algorand':
@@ -51,12 +52,14 @@ def verify():
 		alog_encoded_msg = message
 		if algosdk.util.verify_bytes(alog_encoded_msg,algo_sig,algo_pk):
 			print( "Algo sig verifies!" )
-			#result = True #Should only be true if signature validates
-			return jsonify(result= True, user_message = message)
+			result = True #Should only be true if signature validates
+		else
+			result = False
 
 	else:
-		
-		return jsonify(result = False, user_message = 'undefined')
+		result = False
+	
+	return jsonify(result)
 
 #verify()
 
