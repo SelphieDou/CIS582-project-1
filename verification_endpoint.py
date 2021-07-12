@@ -23,17 +23,16 @@ def verify():
 		eth_sig = sig
 		eth_pk = pk
 		if eth_account.Account.recover_message(eth_encoded_msg,signature = eth_sig) == eth_pk:
-			result = True 
+			return jsonify(True)
 		else:
-			result = False	
-		return jsonify(result)
+			return jsonify(False)	
 		
 	elif platform == 'Algorand':
 		result = True 
-		return jsonify(result)
+		return jsonify(True)
 		
 	else:
-		return jsonify(result)
+		return jsonify(False)
 
 if __name__ == '__main__':
 	app.run(port='5002')
