@@ -16,7 +16,6 @@ def verify():
 	platform = payload['platform']
 	message = json.dumps(payload)
 	pk = payload['pk']
-	result = False
 
 	if platform == 'Ethereum':
 		eth_encoded_msg = eth_account.messages.encode_defunct(text=message)
@@ -28,8 +27,13 @@ def verify():
 			return jsonify(False)	
 		
 	elif platform == 'Algorand':
-		result = True 
-		return jsonify(True)
+		algo_sig = sig
+		algo_pk = pk
+		alog_encoded_msg = message.encode('utf-8')
+		if algosdk.util.verify_bytes(alog_encoded_msg,algo_sig,algo_pk):
+			return jsonify(True)
+		else:
+			return jsonify(False)
 		
 	else:
 		return jsonify(False)
