@@ -19,7 +19,7 @@ def verify():
 	result = False
 
 	if platform == 'Ethereum':
-		eth_encoded_msg = encode_defunct(text=message)
+		eth_encoded_msg = eth_account.messages.encode_defunct(text=message)
 		eth_sig = sig
 		eth_pk = pk
 		if eth_account.Account.recover_message(eth_encoded_msg,signature = eth_sig) == eth_pk:
