@@ -18,6 +18,7 @@ def verify():
 	pk = payload['pk']
 	result = False
 
+	'''
 	#Check if signature is valid
 	if platform == 'Ethereum':
 		eth_encoded_msg = encode_defunct(text=message)
@@ -28,7 +29,7 @@ def verify():
 		
 	elif platform == 'Algorand':
 		result = True #Should only be true if signature validates
-		
+	'''	
 
 	return jsonify(True)
 
