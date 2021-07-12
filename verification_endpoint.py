@@ -26,7 +26,7 @@ def verify():
 		if eth_account.Account.recover_message(eth_encoded_msg,signature=eth_sig) == eth_pk:
 			print( "Eth sig verifies!" )
 			result = True #Should only be true if signature validates
-		else
+		else:
 			result = False
 
 
@@ -37,7 +37,7 @@ def verify():
 		if algosdk.util.verify_bytes(alog_encoded_msg,algo_sig,algo_pk):
 			print( "Algo sig verifies!" )
 			result = True #Should only be true if signature validates
-		else
+		else:
 			result = False
 
 	else:
