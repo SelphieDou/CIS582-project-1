@@ -20,10 +20,10 @@ def verify():
 
 	#Check if signature is valid
 	if platform == 'Ethereum':
-		result = True #Should only be true if signature validates
+		result = False #Should only be true if signature validates
 
 	elif platform == 'Algorand':
-		result = False #Should only be true if signature validates
+		result = True #Should only be true if signature validates
 
 	return jsonify(result)
 
