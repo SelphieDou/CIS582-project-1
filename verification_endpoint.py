@@ -26,7 +26,8 @@ def verify():
 		eth_pk = pk
 		if eth_account.Account.recover_message(eth_encoded_msg,signature = eth_sig) == eth_pk:
 			result = True #Should only be true if signature validates
-			return jsonify(result)
+			
+		return jsonify(result)
 		
 	elif platform == 'Algorand':
 		result = True #Should only be true if signature validates
