@@ -16,6 +16,7 @@ def verify():
 	platform = payload['platform']
 	message = json.dumps(payload)
 	pk = payload['pk']
+	result = False
 
 	#Check if signature is valid
 	if platform == 'Ethereum':
@@ -29,7 +30,6 @@ def verify():
 	elif platform == 'Algorand':
 		result = True #Should only be true if signature validates
 		
-	else result = False
 
 	return jsonify(result)
 
